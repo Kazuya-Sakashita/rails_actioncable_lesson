@@ -1,0 +1,12 @@
+<%= form_with model: @comment, url: comment_create_path(@room), html: {id: "message"} do |f| %>
+  <%= f.text_field :content %>
+  <input type="hidden" value=<%= @room.id %> id="room">
+  <%= f.submit "送信する" %>
+<% end %>
+
+
+<% if @comments.present? %>
+  <% @comments.each do |comment| %>
+    <p><%= comment.content %></p><br>
+  <% end %>
+<% end %>
